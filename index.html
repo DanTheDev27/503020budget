@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+
+    <div id="taskContainer">
+        <label for="input">Enter paycheck amount$</label>
+        <input type="text" name="input" id="tskInput" min="0" step="1" required>
+
+        <label for="paycheckIntervals">
+            Do you get paid weekly or bi-weekly?
+        </label>
+        <select name="options" id="paycheckOptions">
+            <option name="weekly" id="weekly">
+                Weekly
+            </option>
+            <option name="bi-weekly" id="bi-weekly">
+                Bi-weekly
+            </option>
+        </select>
+        <input type="submit" value="submit" id="submitBtn">
+
+        <div id="doughnutChart">
+            <canvas id="dChart">
+            </canvas>
+        </div>
+
+        <div id="bChart">
+            <canvas id="barChart">
+            </canvas>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

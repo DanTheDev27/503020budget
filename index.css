@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    /* height: 100vh; */
+    padding-top: 15vh;
+}
+
+#taskContainer {
+    margin: auto;
+    border: solid;
+    width: 70vw;
+    min-height: 50vh;
+}
+
+#doughnutChart {
+    width: 100%; /* Makes the chart responsive, filling its container */
+    max-width: 600px; /* Max width */
+    height: 400px; /* Fixed height */
+    margin: 0 auto; /* Centering the chart */
+}
+
+#dChart {
+    width: 100% !important; /* Forces the canvas to stretch the width */
+    height: auto !important; /* Automatically adjust height */
+}
