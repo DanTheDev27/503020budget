@@ -141,5 +141,3 @@ function updateBarChart() {
 
 initialize();
 submitBtn.addEventListener('click', handleSubmit);
-
-
