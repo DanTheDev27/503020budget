@@ -2,23 +2,104 @@ body {
     margin: 0;
     /* height: 100vh; */
     padding-top: 15vh;
+    background: #D3D3D3;
 }
 
 #taskContainer {
+    overflow-wrap: break-word;
     margin: auto;
-    border: solid;
+    border: solid #d1cfcf;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
     width: 70vw;
     min-height: 50vh;
-}
-
-#doughnutChart {
-    width: 100%; /* Makes the chart responsive, filling its container */
-    max-width: 600px; /* Max width */
-    height: 400px; /* Fixed height */
-    margin: 0 auto; /* Centering the chart */
+    background: #dedcdc;
 }
 
 #dChart {
-    width: 100% !important; /* Forces the canvas to stretch the width */
-    height: auto !important; /* Automatically adjust height */
+    width: auto; /* Makes the chart responsive, filling its container */
+    max-width: 600px; /* Max width */
+    height: 400px; /* Fixed height */
+    margin: 0 auto; /* Centering the chart */
+    /* border: solid; */
+}
+
+#barChart {
+    width:fit-content;
+    max-width: 600px;
+    height: 600px;
+    /* border: solid; */
+    margin: 0 auto;
+}
+#chartDiv {
+    display: flex;
+    justify-content:space-evenly;
+    /* border:solid red; */
+    margin-top: 100px;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* width: max-content; */
+}
+
+/* Global Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;  /* Makes padding and border included in the width/height */
+}
+
+body {
+    margin: 0;
+    padding-top: 15vh;
+}
+
+#taskContainer {
+    overflow-wrap: break-word;
+    margin: auto;
+    /* border: solid; */
+    width: 70vw;
+    min-height: 50vh;
+    padding: 20px;  /* Add padding for better spacing */
+}
+
+#chartDiv {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%; /* Ensure the chart container takes full width */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+/* Chart Styling */
+#doughnutChart, #barChart {
+    width: 100%;  /* Fill container width */
+    height: auto;  /* Maintain aspect ratio */
+    max-width: 600px;  /* Max width to prevent over-expansion */
+    margin: 0 auto;  /* Centering */
+    /* border: solid; */
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    #taskContainer {
+        width: 85vw;
+    }
+    #chartDiv {
+        flex-direction: column; /* Stack charts vertically on smaller screens */
+        align-items: center;
+    }
+
+    #doughnutChart, #barChart {
+        width: 80%;  /* Use more of the available width */
+        max-width: 500px;  /* Limit max width */
+    }
+}
+
+@media (max-width: 480px) {
+    #doughnutChart, #barChart {
+        width: 90%;  /* Further reduce width for very small screens */
+        max-width: 400px;  /* Limit max width */
+    }
 }
