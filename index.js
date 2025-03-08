@@ -6,7 +6,7 @@ let selectedOption;
 let savedIn3Months, savedIn6Months, savedIn12Months;
 let savedIn3MonthsBiWeekly, savedIn6MonthsBiWeekly, savedIn12MonthsBiWeekly;
 let doughnutChart;
-let bChart;
+let barChart;
 
 function initialize() {
     userInput = document.getElementById('tskInput');
@@ -115,8 +115,8 @@ function updateBarChart() {
     const ctx = document.getElementById('bChart').getContext('2d');
 
     // Destroy previous chart if it exists
-    if (bChart) {
-        bChart.destroy();
+    if (barChart) {
+        barChart.destroy();
     }
 
     // Create a new bar chart
