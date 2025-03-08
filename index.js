@@ -75,6 +75,7 @@ function generateDoughnutChart(amount) {
                 label: 'Budget Allocation',
                 data: [needs, wants, savings],
                 backgroundColor: ['#ff9999', '#66b3ff', '#99ff99'], // Color for each section
+                borderColor: ['#d1cfcf', '#d1cfcf', '#d1cfcf'],
                 hoverOffset: 4,
             }]
         },
@@ -165,4 +166,3 @@ function updateBarChartData(selectedOption) {
 
 initialize();
 submitBtn.addEventListener('click', handleSubmit);
-
