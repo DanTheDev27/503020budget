@@ -1,51 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Planner</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
+body {
+    margin: 0;
+    /* height: 100vh; */
+    padding-top: 15vh;
+    background: #D3D3D3;
+}
+#usrInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#input-container{
+    display: flex;
+    align-items: center;
+}
+#currency-sign {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+#taskContainer {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    overflow-wrap: break-word;
+    margin: auto;
+    border: solid #d1cfcf;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+    width: 70vw;
+    min-height: 50vh;
+    background: #dedcdc;
+}
+
+#dChart, #bChart {
+    width: auto; /* Makes the chart responsive, filling its container */
+    max-width: 600px; /* Max width */
+    height: 100%; /* Fixed height */
+    margin: 0 auto; /* Centering the chart */
+    /* border: solid; */
+}
+
+#barChart {
+    width:auto;
+    max-width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    /* border: solid; */
+}
+
+#chartDiv {
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    /* border:solid red; */
+}
+
+#chartDiv > div {
+    flex: 1 1 50%; /* Each child takes up 50% of the container */
+    box-sizing: border-box;
+}
+
+/* Global Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;  /* Makes padding and border included in the width/height */
+}
+
+body {
+    margin: 0;
+    padding-top: 15vh;
+}
+
+#taskContainer {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    overflow-wrap: break-word;
+    margin: auto;
+    /* border: solid; */
+    width: 70vw;
+    min-height: 50vh;
+    padding: 20px;
+}
 
 
-    <div id="taskContainer">
-        <div id="usrInput">
-            <label for="input">
-                Enter paycheck amount
-            </label>
-            <div id="input-container">
-                <span id="currency-sign">$</span>
-                <input type="text" name="input" id="tskInput" min="0" step="1" required>
-            </div>
-            <label for="paycheckIntervals">
-                Do you get paid Weekly or Bi-weekly?
-            </label>
-            <select name="options" id="paycheckOptions">
-                <option name="weekly" id="weekly">
-                    Weekly
-                </option>
-                <option name="bi-weekly" id="bi-weekly">
-                    Bi-weekly
-                </option>
-            </select>
-            <input type="submit" value="Submit" id="submitBtn">
-        </div>
-        <div id="chartDiv">
-            <div id="doughnutChart">
-                <canvas id="dChart">
-                </canvas>
-            </div>
+/* Chart Styling */
+#doughnutChart, #barChart {
+    width: 100%;  /* Fill container width */
+    height: auto;  /* Maintain aspect ratio */
+    max-width: 600px;  /* Max width to prevent over-expansion */
+    margin: 0 auto;  /* Centering */
+    /* border: solid; */
+}
 
-            <div id="barChart">
-                <canvas id="bChart">
-                </canvas>
-            </div>
-        </div>
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    #taskContainer {
+        width: 85vw;
+    }
+    #chartDiv {
+        flex-direction: column; /* Stack charts vertically on smaller screens */
+        align-items: center;
+        width: 75vw;
+    }
+    #chartDiv > div {
+        flex: 1 1 auto; /* Stacks elements vertically on smaller screens */
+    }
+    #doughnutChart, #barChart {
+        width: auto;  /* Auto-resize based on content */
+        max-width: 100%;  /* Prevent charts from becoming too large */
+        margin: 0 auto; /* Center the chart */
+    }
+}
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="index.js"></script>
-</body>
-</html>
+@media (max-width: 480px) {
+    #doughnutChart, #barChart {
+        width: 90%;  /* Further reduce width for very small screens */
+        max-width: 400px;  /* Limit max width */
+    }
+}
