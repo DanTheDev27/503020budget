@@ -7,6 +7,8 @@ let savedIn3Months, savedIn6Months, savedIn12Months;
 let savedIn3MonthsBiWeekly, savedIn6MonthsBiWeekly, savedIn12MonthsBiWeekly;
 let doughnutChart;
 let barChart;
+let errorMessage = document.getElementById('errorMessage');
+
 
 function initialize() {
     userInput = document.getElementById('tskInput');
@@ -14,17 +16,33 @@ function initialize() {
     paycheckOptions = document.getElementById('paycheckOptions');
 }
 
+function validateInput() {
+    let inputValue = userInput.value.trim();
+    if (inputValue === '' || isNaN(parseInt(inputValue))) {
+        errorMessage.style.visibility = 'visible';
+        errorMessage.style.color = 'red';
+        userInput.style.border = '1px solid red';
+        return false;
+    } else {
+        errorMessage.style.visibility = 'hidden';
+        userInput.style.border = ''
+        return true;
+    }
+}
+
 function getData(){
     let inputValue = userInput.value;
     parsedInput = parseInt(inputValue);
     selectedOption = paycheckOptions.value;
-
+    if (!validateInput()) {
+        console.log('input not validated')
+        return;
+    }
     if(Number.isInteger(parsedInput)) {
         console.log("valid int: ", parsedInput)
         console.log(selectedOption)
     } else {
         console.log('invalid input')
-        // console.log(typeof(parsedInput))
     }
     useParsedInput(parsedInput);
 }
